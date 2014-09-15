@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ReportsWebService"
+ targetNamespace="http://www.upslogisticstech.com/UPSLT/TransportationSuite/ReportsWebService"
+ xmlns:tns="http://www.upslogisticstech.com/UPSLT/TransportationSuite/ReportsWebService"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:ns1="http://www.upslogisticstech.com/UPSLT/TransportationSuite/ReportsWebService"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <documentation>
+
+ </documentation>
+
+ <schema targetNamespace="http://www.upslogisticstech.com/UPSLT/TransportationSuite/ReportsWebService"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://www.upslogisticstech.com/UPSLT/TransportationSuite/ReportsWebService"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  attributeFormDefault="qualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <simpleType name="GeocodeResult">
+   <restriction base="xsd:string">
+    <enumeration value="grAuto"/>
+    <enumeration value="grManual"/>
+    <enumeration value="grGPS"/>
+    <enumeration value="grCity"/>
+    <enumeration value="grZip"/>
+    <enumeration value="grZipPlus4"/>
+    <enumeration value="grUnsuccessful"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="GeocodeConfidence">
+   <restriction base="xsd:string">
+    <enumeration value="gcLow"/>
+    <enumeration value="gcMedium"/>
+    <enumeration value="gcHigh"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="MapDetailLevel">
+   <restriction base="xsd:string">
+    <enumeration value="mdlLeast"/>
+    <enumeration value="mdlLess"/>
+    <enumeration value="mdlAuto"/>
+    <enumeration value="mdlMore"/>
+    <enumeration value="mdlMost"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="TimeZoneValue">
+   <restriction base="xsd:string">
+    <enumeration value="tmzNone"/>
+    <enumeration value="tmzAzoresCapeVerdeIs"/>
+    <enumeration value="tmzMidAtlantic"/>
+    <enumeration value="tmzBrasilia"/>
+    <enumeration value="tmzBuenosAiresGeorgetown"/>
+    <enumeration value="tmzNewfoundland"/>
+    <enumeration value="tmzAtlanticTimeCanada"/>
+    <enumeration value="tmzLaPaz"/>
+    <enumeration value="tmzBogotaLima"/>
+    <enumeration value="tmzEasternTimeUSCanada"/>
+    <enumeration value="tmzIndianaEast"/>
+    <enumeration value="tmzCentralTimeUSCanada"/>
+    <enumeration value="tmzMexicoCityTegucigalpa"/>
+    <enumeration value="tmzSaskatchewan"/>
+    <enumeration value="tmzArizona"/>
+    <enumeration value="tmzMountainTimeUSCanada"/>
+    <enumeration value="tmzPacificTimeUSCanada"/>
+    <enumeration value="tmzAlaska"/>
+    <enumeration value="tmzHawaii"/>
+    <enumeration value="tmzMidwayIslandSamoa"/>
+    <enumeration value="tmzEniwetokKwajalein"/>
+    <enumeration value="tmzDublinEdinburghLondonLisbon"/>
+    <enumeration value="tmzMonroviaCasablanca"/>
+    <enumeration value="tmzBerlinStockholmRomeBernBrusselsVienna"/>
+    <enumeration value="tmzParisMadridAmsterdam"/>
+    <enumeration value="tmzPragueWarsawBudapest"/>
+    <enumeration value="tmzAthensHelsinkiIstanbul"/>
+    <enumeration value="tmzCairo"/>
+    <enumeration value="tmzEasternEurope"/>
+    <enumeration value="tmzHararePretoria"/>
+    <enumeration value="tmzIsrael"/>
+    <enumeration value="tmzBaghdadKuwaitNairobiRiyadh"/>
+    <enumeration value="tmzMoscowStPetersburgKazanVolgograd"/>
+    <enumeration value="tmzTehran"/>
+    <enumeration value="tmzAbuDhabiMuscatTbilisi"/>
+    <enumeration value="tmzKabul"/>
+    <enumeration value="tmzIslamabadKarachiEkaterinburgTashkent"/>
+    <enumeration value="tmzBombayCalcuttaMadrasNewDelhiColombo"/>
+    <enumeration value="tmzAlmatyDhaka"/>
+    <enumeration value="tmzBangkokJakartaHanoi"/>
+    <enumeration value="tmzBeijingChongqingUrumqi"/>
+    <enumeration value="tmzHongKongPerthSingaporeTaipei"/>
+    <enumeration value="tmzTokyoOsakaSapporoSeoulYakutsk"/>
+    <enumeration value="tmzAdelaide"/>
+    <enumeration value="tmzDarwin"/>
+    <enumeration value="tmzMelbourneSydney"/>
+    <enumeration value="tmzGuamPortMoresbyVladivostok"/>
+    <enumeration value="tmzHobart"/>
+    <enumeration value="tmzMagadanSolomonIsNewCaledonia"/>
+    <enumeration value="tmzFijiKamchatkaMarshallIs"/>
+    <enumeration value="tmzWellingtonAuckland"/>
+    <enumeration value="tmzTijuanaBaja"/>
+    <enumeration value="tmzBrisbane"/>
+    <enumeration value="tmzCaracas"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="TimeZoneOptionsType">
+   <restriction base="xsd:string">
+    <enumeration value="tzoGMT"/>
+    <enumeration value="tzoLocalTimeZone"/>
+    <enumeration value="tzoFixedTimeZone"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="ReportType">
+   <restriction base="xsd:string">
+    <enumeration value="rtUR"/>
+    <enumeration value="rtRN"/>
+    <enumeration value="rtTP"/>
+    <enumeration value="rtFL"/>
+    <enumeration value="rtDP"/>
+    <enumeration value="rtRIC"/>
+    <enumeration value="rtRICUR"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="ReportExportType">
+   <restriction base="xsd:string">
+    <enumeration value="retPDF"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="ReportCriteriaType">
+   <restriction base="xsd:string">
+    <enumeration value="ctPageNone"/>
+    <enumeration value="ctPS-SessionsTerrWeeksDays"/>
+    <enumeration value="ctPS-SessionsTerr"/>
+    <enumeration value="ctPS-SessionAnalysis"/>
+    <enumeration value="ctPS-Sessions"/>
+    <enumeration value="ctPS-SessionsTerrWeeks"/>
+    <enumeration value="ctDR-Routes"/>
+    <enumeration value="ctDR-Sessions"/>
+    <enumeration value="ctStdRoute"/>
+    <enumeration value="ctDateRange"/>
+    <enumeration value="ctRegion"/>
+    <enumeration value="ctMC-DateRange"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="ReportParameterDataType">
+   <restriction base="xsd:string">
+    <enumeration value="rptNone"/>
+    <enumeration value="rptString"/>
+    <enumeration value="rptNumber"/>
+    <enumeration value="rptDate"/>
+    <enumeration value="rptDateTime"/>
+    <enumeration value="rptBoolean"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="ReportParameterKind">
+   <restriction base="xsd:string">
+    <enumeration value="rpkNone"/>
+    <enumeration value="rpkDiscrete"/>
+    <enumeration value="rpkRange"/>
+   </restriction>
+  </simpleType>
+  <complexType name="Fault">
+   <sequence>
+     <element name="code" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+     <element name="errorMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     <element name="detailMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="OptionalDateTime">
+   <sequence>
+     <element name="dateTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="TimeZoneOptions">
+   <sequence>
+     <element name="embeddedInTimestamp" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="true"/>
+     <element name="optionType" type="ns1:TimeZoneOptionsType" minOccurs="1" maxOccurs="1" default="tzoGMT"/>
+     <element name="timeZone" type="ns1:TimeZoneValue" minOccurs="1" maxOccurs="1" default="tmzNone"/>
+   </sequence>
+  </complexType>
+  <complexType name="Address">
+   <sequence>
+     <element name="line1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="line2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="crossStreet" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="region1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="region2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="region3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="postalCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="country" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportParameterValue">
+   <sequence>
+     <element name="values" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportParameter">
+   <sequence>
+     <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="prompt" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="dataType" type="ns1:ReportParameterDataType" minOccurs="1" maxOccurs="1"/>
+     <element name="discreteOrRangeKind" type="ns1:ReportParameterKind" minOccurs="1" maxOccurs="1"/>
+     <element name="allowMultipleValues" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+     <element name="defaultValue" type="ns1:ReportParameterValue" minOccurs="1" maxOccurs="1"/>
+     <element name="value" type="ns1:ReportParameterValue" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportRetrievalOptions">
+   <sequence>
+     <element name="retrieveReportParameters" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportIdentity">
+   <sequence>
+     <element name="reportType" type="ns1:ReportType" minOccurs="1" maxOccurs="1"/>
+     <element name="reportName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="Report">
+   <sequence>
+     <element name="reportIdentity" type="ns1:ReportIdentity" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="reportFileName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="criteriaType" type="ns1:ReportCriteriaType" minOccurs="1" maxOccurs="1"/>
+     <element name="reportParameters" type="ns1:ReportParameter" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportExportData">
+   <sequence>
+     <element name="exportType" type="ns1:ReportExportType" minOccurs="1" maxOccurs="1"/>
+     <element name="reportData" type="xsd:base64Binary" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ReportExportOptions">
+   <sequence>
+     <element name="exportType" type="ns1:ReportExportType" minOccurs="1" maxOccurs="1"/>
+     <element name="localeID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <!-- operation request element -->
+  <element name="Nop">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="NopResponse">
+   <complexType>
+    <sequence>
+     <element name="notUsed" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="RetrieveVersionInformation">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="RetrieveVersionInformationResponse">
+   <complexType>
+    <sequence>
+     <element name="version" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="RetrieveRICReportByIdentity">
+   <complexType>
+    <sequence>
+     <element name="identity" type="ns1:ReportIdentity" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="retrieveOptions" type="ns1:ReportRetrievalOptions" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="RetrieveRICReportByIdentityResponse">
+   <complexType>
+    <sequence>
+     <element name="report" type="ns1:Report" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="RetrieveRICReports">
+   <complexType>
+    <sequence>
+     <element name="retrieveOptions" type="ns1:ReportRetrievalOptions" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="RetrieveRICReportsResponse">
+   <complexType>
+    <sequence>
+     <element name="report" type="ns1:Report" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="ExportReportToFile">
+   <complexType>
+    <sequence>
+     <element name="report" type="ns1:Report" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="exportOptions" type="ns1:ReportExportOptions" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="ExportReportToFileResponse">
+   <complexType>
+    <sequence>
+     <element name="url" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+</types>
+
+<message name="NopRequest">
+ <part name="parameters" element="ns1:Nop"/>
+</message>
+
+<message name="NopResponse">
+ <part name="parameters" element="ns1:NopResponse"/>
+</message>
+
+<message name="RetrieveVersionInformationRequest">
+ <part name="parameters" element="ns1:RetrieveVersionInformation"/>
+</message>
+
+<message name="RetrieveVersionInformationResponse">
+ <part name="parameters" element="ns1:RetrieveVersionInformationResponse"/>
+</message>
+
+<message name="RetrieveRICReportByIdentity">
+ <part name="parameters" element="ns1:RetrieveRICReportByIdentity"/>
+</message>
+
+<message name="RetrieveRICReportByIdentityResponse">
+ <part name="parameters" element="ns1:RetrieveRICReportByIdentityResponse"/>
+</message>
+
+<message name="RetrieveRICReports">
+ <part name="parameters" element="ns1:RetrieveRICReports"/>
+</message>
+
+<message name="RetrieveRICReportsResponse">
+ <part name="parameters" element="ns1:RetrieveRICReportsResponse"/>
+</message>
+
+<message name="ExportReportToFileRequest">
+ <part name="parameters" element="ns1:ExportReportToFile"/>
+</message>
+
+<message name="ExportReportToFileResponse">
+ <part name="parameters" element="ns1:ExportReportToFileResponse"/>
+</message>
+
+<portType name="ReportsWebService">
+ <operation name="Nop">
+  <documentation>Service definition of function ns1__Nop</documentation>
+  <input message="tns:NopRequest"/>
+  <output message="tns:NopResponse"/>
+ </operation>
+ <operation name="RetrieveVersionInformation">
+  <documentation>Service definition of function ns1__RetrieveVersionInformation</documentation>
+  <input message="tns:RetrieveVersionInformationRequest"/>
+  <output message="tns:RetrieveVersionInformationResponse"/>
+ </operation>
+ <operation name="RetrieveRICReportByIdentity">
+  <documentation>Service definition of function ns1__RetrieveRICReportByIdentity</documentation>
+  <input message="tns:RetrieveRICReportByIdentity"/>
+  <output message="tns:RetrieveRICReportByIdentityResponse"/>
+ </operation>
+ <operation name="RetrieveRICReports">
+  <documentation>Service definition of function ns1__RetrieveRICReports</documentation>
+  <input message="tns:RetrieveRICReports"/>
+  <output message="tns:RetrieveRICReportsResponse"/>
+ </operation>
+ <operation name="ExportReportToFile">
+  <documentation>Service definition of function ns1__ExportReportToFile</documentation>
+  <input message="tns:ExportReportToFileRequest"/>
+  <output message="tns:ExportReportToFileResponse"/>
+ </operation>
+</portType>
+
+<binding name="ReportsWebService" type="tns:ReportsWebService">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="Nop">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ <operation name="RetrieveVersionInformation">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ <operation name="RetrieveRICReportByIdentity">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ <operation name="RetrieveRICReports">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ <operation name="ExportReportToFile">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="ReportsWebService">
+ <documentation>UPS Logistics Technologies Reports Web Service</documentation>
+ <port name="ReportsWebService" binding="tns:ReportsWebService">
+  <SOAP:address location="http://localhost:83"/>
+ </port>
+</service>
+
+</definitions>

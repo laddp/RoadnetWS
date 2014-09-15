@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/axis-1_4/lib/axis.jar"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/commons-discovery-0.5.jar"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/axis-1_4/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/axis-1_4/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/axis-1_4/lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EnergyInfo"/>
+	<classpathentry kind="lib" path="S:/IT Department/Programming/Dependencies/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse-indigo/plugins/org.apache.commons.discovery_0.2.0.v201004190315/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse-indigo/plugins/javax.wsdl_1.6.2.v201012040545.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse-indigo/plugins/org.apache.commons.logging_1.0.4.v201101211617.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
